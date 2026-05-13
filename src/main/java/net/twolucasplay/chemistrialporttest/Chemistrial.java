@@ -50,6 +50,8 @@ public class Chemistrial {
 
         ModItems.register(modEventBus);
 
+        modEventBus.addListener(this::addCreative);
+
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (Chemistrial) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
@@ -64,6 +66,12 @@ public class Chemistrial {
         LOGGER.info("HELLO FROM COMMON SETUP");
     }
 
+    // Adds Items to Tab
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
+            event.accept(ModItems.URANIUM_INGOT);
+        }
+    }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
