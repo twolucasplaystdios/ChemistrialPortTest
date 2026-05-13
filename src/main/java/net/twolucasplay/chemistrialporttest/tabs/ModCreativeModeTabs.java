@@ -21,7 +21,9 @@ public class ModCreativeModeTabs {
             CreativeModeTab.builder()
                     .icon(() -> new ItemStack(ModItems.URANIUM_INGOT.get()))
                     .title(Component.translatable("tabs.chemistrialporttest.radioactive_items_tab")).displayItems(((itemDisplayParameters, output) ->
-                    {output.accept(ModItems.URANIUM_INGOT);}
+                    {
+                        output.accept(ModItems.URANIUM_INGOT);
+                    }
                     )).build()
     );
 

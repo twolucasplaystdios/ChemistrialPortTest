@@ -31,6 +31,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.twolucasplay.chemistrialporttest.item.ModItems;
+import net.twolucasplay.chemistrialporttest.tabs.ModCreativeModeTabs;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -48,6 +49,8 @@ public class Chemistrial {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
+        // Added Stuff.
+        ModCreativeModeTabs.register(modEventBus);
         ModItems.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
