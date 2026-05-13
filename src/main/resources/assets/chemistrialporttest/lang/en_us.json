@@ -1,5 +1,3 @@
 {
-  "itemGroup.chemistrialporttest": "Example Mod Tab",
-  "block.chemistrialporttest.example_block": "Example Block",
-  "item.chemistrialporttest.example_item": "Example Item"
+  "item.chemistrialporttest.uranium_ingot": "Uranium Ingot"
 }

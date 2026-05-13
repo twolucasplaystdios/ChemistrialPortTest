@@ -9,7 +9,7 @@ import net.twolucasplay.chemistrialporttest.Chemistrial;
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Chemistrial.MODID);
 
-    public static final DeferredItem<Item> URANIUM_ORE = ITEMS.registerSimpleItem("uranium");
+    public static final DeferredItem<Item> URANIUM_INGOT = ITEMS.registerSimpleItem("uranium_ingot");
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
