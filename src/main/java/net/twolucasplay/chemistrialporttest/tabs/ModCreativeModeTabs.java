@@ -1,6 +1,12 @@
 package net.twolucasplay.chemistrialporttest.tabs;
 
+import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.twolucasplay.chemistrialporttest.Chemistrial;
@@ -17,12 +23,27 @@ public class ModCreativeModeTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Chemistrial.MODID);
 
 
+    public static final TagKey<Item> RADIOACTIVE = TagKey.create(
+            // The registry key. The type of the registry must match the generic type of the tag.
+            Registries.ITEM,
+            // The location of the tag. This example will put our tag at data/examplemod/tags/blocks/example_tag.json.
+            Identifier.fromNamespaceAndPath("chemistrialporttest", "radioactive")
+    );
+
     public static final Supplier<CreativeModeTab> RADIOACTIVE_TAB = CREATIVE_MODE_TABS.register("radioactive_items_tab", () ->
             CreativeModeTab.builder()
                     .icon(() -> new ItemStack(ModItems.URANIUM_INGOT.get()))
                     .title(Component.translatable("tabs.chemistrialporttest.radioactive_items_tab")).displayItems(((itemDisplayParameters, output) ->
                     {
-                        output.accept(ModItems.URANIUM_INGOT);
+
+                        for (Holder<Item> itemHolder : ModItems.ITEMS.getEntries()) {
+                            Item item = itemHolder.value();
+                            ItemStack stack = new ItemStack(item);
+
+                            if (stack.is(RADIOACTIVE)){
+                                output.accept(item);
+                            }
+                        }
                     }
                     )).build()
     );
