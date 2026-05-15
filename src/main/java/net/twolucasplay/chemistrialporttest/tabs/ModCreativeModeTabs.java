@@ -26,10 +26,16 @@ public class ModCreativeModeTabs {
     public static final TagKey<Item> RADIOACTIVE = TagKey.create(
             // The registry key. The type of the registry must match the generic type of the tag.
             Registries.ITEM,
-            // The location of the tag. This example will put our tag at data/examplemod/tags/blocks/example_tag.json.
+            // The location of the tag.
             Identifier.fromNamespaceAndPath("chemistrialporttest", "radioactive")
     );
 
+    public static final TagKey<Item> TRANS = TagKey.create(
+            Registries.ITEM,
+            Identifier.fromNamespaceAndPath("chemistrialporttest", "transition_metals")
+    );
+
+    // The radioactive tab
     public static final Supplier<CreativeModeTab> RADIOACTIVE_TAB = CREATIVE_MODE_TABS.register("radioactive_items_tab", () ->
             CreativeModeTab.builder()
                     .icon(() -> new ItemStack(ModItems.URANIUM_INGOT.get()))
@@ -43,6 +49,27 @@ public class ModCreativeModeTabs {
                             if (stack.is(RADIOACTIVE)){
                                 output.accept(item);
                             }
+
+                        }
+                    }
+                    )).build()
+    );
+
+    // Transition Metals tab
+    public static final Supplier<CreativeModeTab> TRANSITION_METALS_TAB = CREATIVE_MODE_TABS.register("transition_metals_tab", () ->
+            CreativeModeTab.builder()
+                    .icon(() -> new ItemStack(ModItems.ZINC_INGOT.get()))
+                    .title(Component.translatable("tabs.chemistrialporttest.transition_metals_tab")).displayItems(((itemDisplayParameters, output) ->
+                    {
+
+                        for (Holder<Item> itemHolder : ModItems.ITEMS.getEntries()) {
+                            Item item = itemHolder.value();
+                            ItemStack stack = new ItemStack(item);
+
+                            if (stack.is(TRANS)){
+                                output.accept(item);
+                            }
+
                         }
                     }
                     )).build()

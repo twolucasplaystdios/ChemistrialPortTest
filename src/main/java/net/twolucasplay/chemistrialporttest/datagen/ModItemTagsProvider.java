@@ -22,5 +22,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         this.tag(ItemTags.create(Identifier.fromNamespaceAndPath("chemistrialporttest", "radioactive")))
                 .add(ModItems.URANIUM_INGOT.get());
+
+        this.tag(ItemTags.create(Identifier.fromNamespaceAndPath("chemistrialporttest", "transition_metals")))
+                .add(ModItems.ZINC_INGOT.get());
     }
 }

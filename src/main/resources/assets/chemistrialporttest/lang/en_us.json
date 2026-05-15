@@ -1,4 +1,8 @@
 {
   "tabs.chemistrialporttest.radioactive_items_tab": "Radioactive Stuff",
-  "item.chemistrialporttest.uranium_ingot": "Uranium Ingot"
+  "tabs.chemistrialporttest.transition_metals_tab": "Transition Metals",
+
+
+  "item.chemistrialporttest.uranium_ingot": "Uranium Ingot",
+  "item.chemistrialporttest.zinc_ingot": "Zinc Ingot"
 }
