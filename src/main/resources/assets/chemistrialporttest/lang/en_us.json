@@ -4,5 +4,7 @@
 
 
   "item.chemistrialporttest.uranium_ingot": "Uranium Ingot",
-  "item.chemistrialporttest.zinc_ingot": "Zinc Ingot"
+  "item.chemistrialporttest.zinc_ingot": "Zinc Ingot",
+
+  "block.chemistrialporttest.block_of_zinc": "Block of Zinc"
 }

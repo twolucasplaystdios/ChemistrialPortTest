@@ -6,6 +6,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
 import net.neoforged.neoforge.common.data.ItemTagsProvider;
 import net.twolucasplay.chemistrialporttest.Chemistrial;
+import net.twolucasplay.chemistrialporttest.block.ModBlocks;
 import net.twolucasplay.chemistrialporttest.item.ModItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -24,6 +25,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 .add(ModItems.URANIUM_INGOT.get());
 
         this.tag(ItemTags.create(Identifier.fromNamespaceAndPath("chemistrialporttest", "transition_metals")))
-                .add(ModItems.ZINC_INGOT.get());
+                .add(ModItems.ZINC_INGOT.get())
+                .add(ModBlocks.BLOCK_OF_ZINC.asItem());
     }
 }

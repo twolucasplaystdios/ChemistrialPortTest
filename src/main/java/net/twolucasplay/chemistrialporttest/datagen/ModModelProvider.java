@@ -6,10 +6,12 @@ import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.core.Holder;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.twolucasplay.chemistrialporttest.Chemistrial;
 
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.data.PackOutput;
+import net.twolucasplay.chemistrialporttest.block.ModBlocks;
 import net.twolucasplay.chemistrialporttest.item.ModItems;
 
 public class ModModelProvider extends ModelProvider {
@@ -29,6 +31,14 @@ public class ModModelProvider extends ModelProvider {
             }
 
             itemModels.generateFlatItem(item, ModelTemplates.FLAT_ITEM);
+        }
+
+        // Block Models
+
+        for (Holder<Block> blockHolder : ModBlocks.BLOCKS.getEntries()){
+            Block block = blockHolder.value();
+
+            blockModels.createTrivialCube(block);
         }
     }
 }

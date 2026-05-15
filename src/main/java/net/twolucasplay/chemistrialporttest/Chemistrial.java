@@ -30,6 +30,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.twolucasplay.chemistrialporttest.block.ModBlocks;
 import net.twolucasplay.chemistrialporttest.item.ModItems;
 import net.twolucasplay.chemistrialporttest.tabs.ModCreativeModeTabs;
 import org.slf4j.Logger;
@@ -51,7 +52,10 @@ public class Chemistrial {
 
         // Added Stuff.
         ModCreativeModeTabs.register(modEventBus);
+
+
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
 

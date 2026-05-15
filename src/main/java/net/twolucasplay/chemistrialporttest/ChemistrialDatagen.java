@@ -4,12 +4,18 @@ package net.twolucasplay.chemistrialporttest;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.twolucasplay.chemistrialporttest.datagen.ModBlockLootTableProvider;
+import net.twolucasplay.chemistrialporttest.datagen.ModBlockTagsProvider;
 import net.twolucasplay.chemistrialporttest.datagen.ModItemTagsProvider;
 import net.twolucasplay.chemistrialporttest.datagen.ModModelProvider;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 @EventBusSubscriber(modid = Chemistrial.MODID)
@@ -26,5 +32,11 @@ public class ChemistrialDatagen {
         generator.addProvider(true, new ModModelProvider(packOutput));
 
         generator.addProvider(true, new ModItemTagsProvider(packOutput, lookup));
+        generator.addProvider(true, new ModBlockTagsProvider(packOutput, lookup));
+        generator.addProvider(true, new LootTableProvider(packOutput, Collections.emptySet(),
+                List.of(
+                        new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK)), lookup
+                )
+        );
     }
 }
